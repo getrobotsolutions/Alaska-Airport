@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+ <meta charset="UTF-8">
+<head>
+<meta content="text/html" charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+
+
+<!--<script language="JavaScript" type="text/javascript"
+	src="Scripts/FlashPlayer.js"></script>-->
+<script language="JavaScript" type="text/javascript"
+	src="Scripts/BaseCommand.js"></script>
+<script language="JavaScript" type="text/javascript"
+	src="Scripts/BaseEvent.js"></script>
+<script language="JavaScript" type="text/javascript"
+	src="Scripts/LogConsole.js"></script>
+
+ <script src="jquery/jquery-3.2.1.min.js"></script>
+<script language="JavaScript" type="text/javascript"
+	src="maincontents.js"></script>
+
+ <script src="boots/js/bootstrap.min.js"></script>
+ 
+
+ <script src="Scripts/speech.js"></script>
+
+
+  <script src="Scripts/lang.js"></script>
+  <link rel="stylesheet" href="boots/css/bootstrap.min.css">
+
+
+
+<script type="text/javascript">
+
+    // responsiveVoice.speak("شكرا", "Arabic Male");
+
+    // setTimeout( function(){ 
+    // responsiveVoice.speak("Hi. Welcome to our airport. To begin, please press one of the buttons below.", "UK English Male");
+   
+  // }  , 3000 );
+
+
+
+    
+</script>
+<link rel="stylesheet" href="css/style_riyadh.css">
+<link href="css/Setting.css" rel="stylesheet" type="text/css" />
+<link href="css/Language.css" rel="stylesheet" type="text/css" />
+<link href="css/Main.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+  .icon1{padding-top:120px;}
+</style>
+
+</head>
+<body>
+
+  	<div class="jumbotron text-center logo">
+      <span class="col-sm-1"></span>
+      <span class="col-sm-11">
+        <!--<h1 class="" onclick="FC_LoadConfigView()">LaGuardia</h1>-->
+        <img src="images/logo.png" class="img-responsive" alt="Responsive image" width="500">
+      </span>
+      <!--<span class="col-sm-6 text-right">
+          <p  id="content_air">Your Gateway To New York</p>
+      </span>-->
+      
+       
+    </div>
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid navbar1">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="vdivider">
+              <a onclick="FC_ContentsCall('Flights','')" href="#">
+                  <span class="glyphicon glyphicon-plane" ></span>
+                  <div class="fly" id="glyph-text">Flights</div>
+                   <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="vdivider">
+            <a onclick="FC_ContentsCall('BoardingPass','')" href="#">
+              <span class="glyphicon glyphicon-qrcode" id="glyph-text"></span>
+              <div class="scan" id="glyph-text">Scan your Boarding-pass</div>
+
+            </a>
+            </li>
+            
+            <li class="vdivider">
+              <a  onclick="FC_ContentsCall('TerminalMap','')" href="#">
+                <span class="glyphicon glyphicon-picture" id="glyph-text"></span><div class="map" id="glyph-text">Terminal Map</div>
+              </a>
+            </li>
+            <!--<li class="dropdown vdivider">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <span class="glyphicon glyphicon-pushpin" id="glyph-text"></span>              <div class="lang" id="glyph-text">غير اللغة<span class="caret"></span></div>
+
+               </a>
+              <ul class="dropdown-menu">
+                <li class = "active">
+                  <a id="change-ar" href = "#">
+                    <img class="flag" src="images/flags/arabia.png">
+                  </a>
+                </li>
+                <li id="change-us" value="de"><a href="#"><img class="flag" src="images/flags/us.png"></a></li>
+              </ul>
+            </li>-->
+            <li class="vdivider"></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+  <div class="bmg">  
+    <div class="icon1">
+      <div class="container">
+        <div class="row">
+          <!--<div id="content_fly" class="alert alert-success" role="alert" style="background-color: rgba(0, 0, 0, .7);font-size:57px;text-align: center;">Press here to start</div>-->
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+              <div class="parent" style="background-color: rgba(0, 0, 0, .7);">
+                <a onclick="FC_ContentsCall('eat')" href="#">
+                    <img class="child" src="images/icon/eat.jpg">
+                    <div id="content_eat" class="icon-title">Dine & Shop</div>
+                </a>
+              </div>
+              
+              
+
+         <!--  <a onclick="FC_ContentsCall('eat')" href="#" class="btn btn-danger btn-lg">
+                <span  class="glyphicon glyphicon-cutlery"></span> <br>
+                <div id="content_eat" class="txt">المأكولات <br>والمشروبات</div>
+            </a> -->
+          </div>
+          <div class="col-sm-4">
+              <div class="parent" style="background-color: rgba(0, 0, 0, .7);">
+                <a onclick="FC_ContentsCall('shop')" href="#">
+                  <img class="child" src="images/icon/shop.jpg">
+                  <div id="content_shop" class="icon-title">Concourse Renovation</div>
+                </a>
+              </div>
+              <!-- <a onclick="FC_ContentsCall('shop')" href="#" class="btn btn-success btn-lg">
+                <span class="glyphicon glyphicon-shopping-cart"></span> <br>
+                <div id="content_shop" class="txt">التسوق</div>
+            </a> -->
+          </div>
+          <div class="col-sm-4">
+
+              <div class="parent" style="background-color: rgba(0, 0, 0, .7);">
+                <a onclick="FC_ContentsCall('info')" href="#">
+                  <img class="child" src="images/icon/transport.jpg">
+                  <div id="content_info" class="icon-title">Info</div>
+                </a>
+              </div>
+              <!-- <a onclick="FC_ContentsCall('info')" href="#" class="btn btn-warning1 btn-lg">
+                <span class="glyphicon glyphicon glyphicon-road"></span> <br>
+                <div id="content_info" class="txt">خدمات<br> التنقل</div>
+            </a> -->
+          </div>
+        </div>
+
+        <!--<div class="row">
+        
+          
+
+
+          <div class="col-sm-4">
+
+                <div class="parent" style="background-color: rgba(0, 0, 0, .7);">
+                  <a onclick="FC_ContentsCall('TerminalMap','')" href="#">
+                    <img class="child" src="images/icon/map.jpg">
+                    <div id="content_map" class="icon-title">خريطة المحطة <br> الطرفية</div>
+                  </a>
+                </div>
+              
+          </div>
+          <div class="col-sm-4">
+              <div class="parent" style="background-color: rgba(0, 0, 0, .7);">
+                  <a onclick="FC_ContentsCall('Flights','')" href="#">
+                    <img class="child" src="images/icon/flights.jpg">
+                    <div id="content_flights" class="icon-title">رحلات طيران</div>
+                  </a>
+              </div>
+          </div>
+          <div class="col-sm-4">
+              <div class="parent" style="background-color: rgba(0, 0, 0, .7);">
+                  <a onclick="FC_ContentsCall('BoardingPass','')" href="#">
+                    <img class="child" src="images/icon/Boarding-pass.jpg">
+                    <div id="content_scan" class="icon-title">مسح الصعود <br> تمريرة الخاص بك</div>
+                  </a>
+              </div>
+          </div>
+
+        </div>-->
+        <div class="row">
+              <div class="col-sm-4">
+              <div class="parent" style="background-color: rgba(0, 0, 0, .7);">
+                <a onclick="FC_ContentsCall('RobotAvatar', '')" href="#">
+                  <img class="img-child" src="images/icon/RA.png" >
+                  <div id="content_avatar" class="icon-title">Avatar</div>
+                </a>
+              </div>
+          <!-- <a onclick="FC_ContentsCall('RobotAvatar', '')" href="#" class="btn btn-warning btn-lg">
+                <span class="glyphicon glyphicon-user"></span> <br>
+                <div id="content_dance" class="txt">صورتك في <br>الوجه الآلي</div>
+            </a> -->
+          </div>
+<!--           <div class="col-sm-4">
+              <img id="HF" width="300" src="Image\PhotoPrinting_En.png"
+              onclick="FC_ContentsCall('PhotoPrinting', '')">
+          </div>
+ -->
+          <div class="col-sm-4">
+              <div class="parent" style="background-color: rgba(0, 0, 0, .7);">
+                <a onclick="FC_ContentsCall('PhotoPrinting','')" href="#">
+                  <img class="img-child" src="images/icon/PP.png">
+                  <div id="content_selfie" class="icon-title">Take Photo</div>
+                </a>
+              </div>
+
+              <!-- <a onclick="FC_ContentsCall('PhotoPrinting','')" href="#" class="btn btn-primary btn-lg">
+                <span class="glyphicon glyphicon-camera"></span> <br>
+                <div id="content_selfie" class="txt">تصوير</div>
+            </a> -->
+          </div>
+
+
+<!--           <div class="col-sm-4">
+
+              <img id="HF" width="300" src="Image\Dance.png"
+            onclick="FC_ContentsCall('RobotDance', '')">
+
+          </div>
+ -->          <div class="col-sm-4">
+
+                <div class="parent" style="background-color: rgba(0, 0, 0, .7);">
+                  <a onclick="FC_ContentsCall('RobotDance','')" href="#">
+                    <img class="img-child" src="images/icon/D.png">
+                    <div id="content_dance" class="icon-title">Dance</div>
+                  </a>
+              </div> 
+             
+          </div>
+          <div class="row">
+            
+              <div class="col-sm-4">
+
+                <div class="parent" style="background-color: rgba(0, 0, 0, .7);position: relative;top: 30px;left: 270px;">
+                  <a onclick="FC_ContentsCall('ThingsToDo','')" href="#">
+                    
+                    <div id="content_dance" class="icon-title" style="font-size: 80px;line-height: 80px;">Things To Do</div>
+                  </a>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div  id="content_explore" class="explore">استكشاف تنازلات لدينا</div> -->
+  <footer>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+          <li data-target="#myCarousel" data-slide-to="3"></li>
+          
+       
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+
+          <div class="item active">
+            <img class="fixed-height" src="images/slider/1.png" width="460" height="345">
+            <div class="carousel-caption">
+              <h3></h3>
+              <p></p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img class="fixed-height" src="images/slider/2.png" width="460" height="345">
+            <div class="carousel-caption">
+              <h3></h3>
+              <p></p>
+            </div>
+          </div>
+          <div class="item">
+            <img class="fixed-height" src="images/slider/3.png" width="460" height="345">
+            <div class="carousel-caption">
+              <h3></h3>
+              <p></p>
+            </div>
+          </div>
+
+
+
+          <div class="item">
+            <img class="fixed-height" src="images/slider/4.png" width="460" height="345">
+            <div class="carousel-caption">
+              <h3></h3>
+              <p></p>
+            </div>
+          </div>
+    
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+    </div>
+  </footer>
+
+</body>
+</html>

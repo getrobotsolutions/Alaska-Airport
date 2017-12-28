@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html" charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
+
+
+<!--<script language="JavaScript" type="text/javascript"
+  src="Scripts/FlashPlayer.js"></script>-->
+<script language="JavaScript" type="text/javascript"
+  src="../../Scripts/BaseCommand.js"></script>
+<script language="JavaScript" type="text/javascript"
+  src="../../Scripts/BaseEvent.js"></script>
+<script language="JavaScript" type="text/javascript"
+  src="../../Scripts/LogConsole.js"></script>
+
+
+<script language="JavaScript" type="text/javascript"
+  src="../../maincontents.js"></script>
+ <script src="../../jquery/jquery-3.2.1.min.js"></script>
+ <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+
+ <script src="../../boots/js/bootstrap.min.js"></script>
+  <script src="../../Scripts/speech.js"></script>
+  <script src="../../Scripts/lang.js"></script>
+  <script src="js/lang_info.js"></script>
+  <!-- <script src="sheetjs/dist/xlsx.full.min.js"></script>  -->
+
+  <link rel="stylesheet" href="../../boots/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="../../css/style_riyadh.css">
+
+<style>
+    .bmg{
+          background-image: none;
+    }
+    .img-home {
+          position: relative;
+          z-index: 99;
+          margin-top: 32px;
+          margin-left: 16px;
+          height: 66px;
+          cursor: pointer; cursor: hand;
+    }
+
+      tbody {
+          display:block;
+          height:1000px;
+          overflow:auto;
+      }
+      thead, tbody tr {
+          display:table;
+          width:100%;
+          table-layout:fixed;
+      }
+      thead {
+          width: calc( 101.5% - 1em )
+      }
+      .maps{
+                background-color: darkgrey;
+                height: 500px;
+                width: 1080px;
+      }
+    
+      hr {
+          display: block;
+          /* height: 1px; */
+          border: 0;
+          /* color: #87CEFA; */
+          margin-top: 5px;
+          margin-bottom: 3px;
+          border-top: 2px solid #87CEFA;
+      }
+     
+    .wrap{
+        padding-top:3px;
+    }
+    .part1{
+          background-color: #e4e4e4;
+          height: 704px;
+          margin-top: -22px;
+          margin-left: -15px;
+    }
+    .part2{
+        background-color: #f6f6f6;
+        height: 703px;
+        width: 551px;
+        /* padding-right: 182px; */
+        margin-left: -28px;
+        z-index: 0;
+        margin-top: -22px;
+        position: absolute; 
+    }
+        
+    .titl1{
+                font-size: 50px;
+    font-family: calibri;
+    font-style: bold;
+    padding-top: 125px;
+    padding-left: 205px;
+    }  
+    .txt1{
+             margin-top: 80px;
+    font-family: calibri;
+    font-style: unset;
+    font-size: 27px;
+    margin-left: 127px;
+    padding-right: 142px;
+    text-align: center;
+    line-height: 31px;
+    color: #00003F;
+    }
+     .txt2{
+      padding-top: 3px;
+      font-family:calibri;
+      font-size:10px;
+      display:inline;
+    }
+    ul{
+      list-style-type: none;
+    }
+    ul.list1{
+                  padding-top: -3px;
+                  line-height: 41px;
+                      width: 577px;
+                  font-size: 20px;
+                   text-align: center; 
+                  margin-top: -3px;
+                  margin-left: -39px;
+                  font-weight: 500;
+                  font-family: inherit;
+    }
+    ul.list1 li:after {
+/*        content: "";
+        display: block;
+        height: 1px;
+        width: 100%;
+        margin: 0px;
+        background: grey;*/
+    }
+    ul.list2{
+            padding-top: 2px;
+            padding-left: 64px;
+            line-height: 64px;
+            font-size: 30px;
+            /* text-align: center; */
+            margin-left: -60px;
+            font-weight: 500;
+            font-family: inherit;
+    }
+    ul.list2 li:after {
+       /* content: "";
+        display: block;
+        height: 1px;
+        width: 100%;
+        margin: 0px;
+        background: grey;*/
+    }
+    a,a:hover { text-decoration : none; color : #000; }
+    #leftmenu h3 {
+       margin: 0;
+      font-family: junction;
+      font-size: 27px;
+      font-weight: 200;
+      padding: 0px 30px;
+      border-top: 1px solid #154055;
+      border-bottom: 1px solid #236b8e;
+      cursor: pointer;
+      background-color: #2B547E;
+      color: #ffffff;
+      text-align: left;
+      width: 540px;
+    }
+    #leftmenu h3:hover {
+        background-color:#236b8e;
+    }
+    #leftmenu h5 {
+           margin: 0;
+          font-family: junction;
+          font-weight: 100;
+          padding: 7px 78px;
+          border-top: 1px solid #153F65;
+          border-bottom: 1px solid #236b8e;
+          cursor: pointer;
+          background-color: #153F65;
+          color: #ffffff;
+          text-align: left;
+          width: 540px;
+    }
+     #leftmenu h5:hover {
+        background-color:#4e88a4;
+    }
+    #leftmenu > ul {
+        margin:0;
+        padding:0;
+    }
+    #leftmenu > ul li {
+        padding-left:0px;
+        list-style-type:none;
+    }
+    #leftmenu > ul li a {
+        color:#666666;
+        font-weight:200;
+        font-family:vollkorn;
+            font-size: 24px;
+         padding-left: 80px;
+        text-decoration:none;
+    }
+    #leftmenu > ul li a:hover {
+        text-decoration:underline;
+    }
+    #leftmenu .current {
+        color:#006699;
+        text-decoration:underline;
+    }
+    .sub{
+      background-color:green;
+    }
+    .h5, h5 {
+        font-size: 21px;
+    }
+    .bdy{
+        background-color: whitesmoke;
+     /*   height: 290px;
+        width: 625px;*/
+        height: 483px;
+            width: 539px;
+        padding-right: 25px;
+        margin-left: 4px;
+        margin-top: 310px;
+        z-index: -1;
+        line-height: 40px;
+        position: absolute;
+    }
+    #title{
+         font-size: 30px;
+    margin-top: 20px;
+    font-weight: 100;
+    padding-left: 55px;
+    font-family: verdena;
+   
+    }
+    #location{
+        font-size: 15px;
+        font-family:cursive;
+        font-weight: 200;
+    padding-left: 60px;
+    }
+    #desc{
+        font-size: 14px;
+    font-weight: 200;
+    padding-left: 55px;
+    font-family: calibri;
+    line-height: 17px;
+    padding-bottom: 20px;
+    }
+   /* #btn{
+      margin-left: 55px;
+    }*/
+    #icon{
+        height: 400px;
+        padding-top: 182px;
+        width: 400px;
+        padding-left: 176px;
+    }
+ /*   #wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        box-shadow: 0 -300px 200px -200px #fff inset;
+    }*/
+    #btn1,#btn3,#btn5,#btn7{
+          height: 105px;
+          margin-top: 44px;
+          width: 160px;
+          margin-left:-12px;
+      }
+      #btn2,#btn4,#btn6,#btn8{        
+          height: 105px;
+          margin-top: 44px;
+          width: 160px;
+          margin-left: 71px;
+      }
+    .prim_1{
+          padding-top: 18px;
+      }
+      .row {
+          margin-left: 80px;
+          padding-bottom: 5px;
+      }
+      /*Navigation Side Menu*/
+      .hr-ver-menu-wrapper{    border: 1px solid #c7c7c7; width:549px; font-family:arial; margin-top:220px;}
+      .hr-ver-menu-wrapper .v-menu-title{color: #fff;
+          background-color: #0057a4;
+              font-size: 22px;
+              font-family: verdena;
+              font-weight: 400;
+          text-align: center;
+          padding: 5px 0;
+          width: 548px;}
+      .hr-ver-menu{width:548px;}
+      .hr-ver-menu li{position:relative;}
+      .hr-ver-menu li a{    text-decoration: none;    font-size: 15px;       display: block;       background: #0086be;
+             color: #FFFFFF;
+          padding: 5px 8px 5px 28px;    border-bottom: 1px solid gainsboro;}
+      .hr-ver-menu li a:hover{background:#ccc;}
+      /*.hr-ver-menu .hr_tog{background:blue;height:17px; width:17px; display:inline-block;position:absolute;left:6px;top:0;
+          margin-top: 5px;}*/
+/*      .hr-ver-menu .hr_tog.pl-active{background:green}
+*/      .hr-ver-menu ul{display:none;}
+      .hr-ver-menu ul li a{    background: #F6FBFF; padding-left:35px;}
+      .hr-ver-menu li a.hr-active{    background: #0086be;    color: #FFFFFF;}
+
+      .bd{font-family:calibri; font-size:15px; line-height: 21px;font-weight:100;}
+      .add,.ph{font-family:cursive; font-size:14px; line-height: 22px;font-weight:100;}
+
+          .body1{
+      padding:10px 20px;
+    }
+    .body1 h3{
+      font-size: 1.8em;
+    font-weight: 600;
+    color: #00518f;
+    }
+    .body1 h4{
+      font-weight: bold;
+    }
+    .body1 p{
+      line-height: 15px;
+      font-size: 17px;
+    }
+    .body1 span{ color: #00518f;}
+    .left_half, .right_half{
+      width: 48%;
+      float: left;
+    }
+    .left_half{
+      padding-right: 30px;
+    }
+
+</style>
+
+
+<link href="../../css/Setting.css" rel="stylesheet" type="text/css" />
+<link href="../../css/Language.css" rel="stylesheet" type="text/css" />
+<link href="../../css/Main.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../css/font-awesome-4.7.0/css/font-awesome.min.css">
+
+<script language="JavaScript" type="text/javascript" src="../../Scripts/FlashPlayer.js"></script>
+<script language="JavaScript" type="text/javascript" src="RobotDance.js"></script>
+  <script type="text/javascript">
+
+        
+  </script>
+</head>
+<body>
+
+     <div class="jumbotron text-center logo">
+      <span class="col-sm-1"><img src="../../images/Home-icon.png" onclick="GoHome()" class="img-home" alt="Responsive image"></span>
+      <span class="col-sm-11">
+        <img src="../../images/logo.png" class="img-responsive" alt="Responsive image">
+      </span>
+         
+    </div>
+
+   <nav class="navbar navbar-default">
+      <div class="container-fluid navbar1">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="vdivider">
+              <a onclick="FC_ContentsCall('sub_flights','')" href="#" >
+                  <span class="glyphicon glyphicon-plane" ></span>
+                  <div class="fly" id="glyph-text">Flights</div>
+                   <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="vdivider">
+            <a onclick="FC_ContentsCall('sub_boardingpass','')" href="#">
+              <span class="glyphicon glyphicon-qrcode" id="glyph-text"></span>
+              <div class="scan" id="glyph-text">Scan your Boarding-pass</div>
+
+            </a>
+            </li>
+            
+            <li class="vdivider">
+              <a onclick="FC_ContentsCall('sub_terminalmap','')" href="#">
+                <span class="glyphicon glyphicon-picture" id="glyph-text"></span><div class="map" id="glyph-text">Terminal Map</div>
+              </a>
+            </li>
+            <!--<li class="dropdown vdivider">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <span class="glyphicon glyphicon-pushpin" id="glyph-text"></span>              <div class="lang" id="glyph-text">Change Language<span class="caret"></span></div>
+
+               </a>
+              <ul class="dropdown-menu">
+                <li class = "active">
+                  <a id="change-ar" href = "#">
+                    <img class="flag" src="../../images/flags/arabia.png">
+                  </a>
+                </li>
+                <li id="change-us" value="de"><a href="#"><img class="flag" src="../../images/flags/us.png"></a></li>
+              </ul>
+            </li>-->
+            <li class="vdivider"></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="body1">
+      <h3>Address:</h3>
+        
+      <div class="left_half">
+        
+        <p>
+Physical  Address South Terminal:</br>
+5000  West  International Airport Road</br>
+Anchorage,  AK  99502</br>
+Physical  Address North Terminal:</br>
+4600  Postmark  Drive</br>
+Anchorage, AK 99502 </br>
+Mailing address:</br>
+Ted Stevens Anchorage International Airport</br>
+PO  Box 196960</br>
+Anchorage,  AK  99519-6960</p>
+        <h3>Banking:</h3>
+        <p>
+<b>Banks</b></br>
+There is  no  bank  at  the Airport,  however there are ATMS  located in  the North and South 
+Terminals. </br>
+<b>Currency  Exchange</b></br>
+There is  no  currency  exchange  at  the Airport,  most  people  can receive currency  by  using 
+bankcard  at  the ATMs.</br>
+<b>Western Union</b></br>
+The airport does  not have  a Western Union on  site.</br>
+The nearest Western Union service is  available at:</br>
+Carrs Aurora  Village Shopping  Center</br>
+1650 West Northern  Lights  Blvd</br>
+(907) 339-0500</br>
+Carrs Jewel Lake  Shopping  Center</br>
+4000  West Dimond Blvd</br>
+(907)339-1200</br>
+Fred  Meyer Shopping  Center</br>
+2000  West   Dimond Blvd</br>
+(907) 267-6700</br>
+
+
+        <h3>Flight  Check-in:</h3>
+        <p>
+          Passengers  checking  in  for regional  flights through Era,  PenAir  or  Grant should  plan  on  checking  
+in  30  minutes – 1 hour  prior to  flight  departure.</p>
+  <p>Passengers flying  on  other carriers  should  check in  at  the ticket  counter 2 hours prior to flight 
+departure</p>
+<h3>Freezer Storage/Shipping/Baggage  Storage:</h3>
+<p>There  are two companies that  handle  Baggage and Freezer Storage in  the South Terminal: </p>
+<p><span>Huntleigh  USA</span>Level 1,  next  to  Bag Claim No. 4.  
+Passengers  must  present an  airline ticket  or  boarding  pass  in  order to  use this  service 
+(907) 248-0373</p>
+
+<p><span>Alaska Luggage & Seafood Shipping  Services:</span>Level 2,  across  from  TSA check-in. 
+Passengers  must  present an  airline ticket  or  boarding  pass  in  order to  use this  service.
+(907) 644-8256</p>
+<h3>Hotel/Overnight accommodations:</h3>
+<p>There  is  no  hotel on-site at  the Ted Stevens Anchorage International Airport.
+There are several hotels  near  the airport,  several with  courtesy  shuttle service available.
+The airport is  busy  24  hours a day.    The terminals are bright  and frequent  announcements 
+provide gate information and  time throughout the day and night.</p>
+
+<h3>Lost  and Found:</h3>
+<p>The Lost and Found office  is  located in  the public  hallway between the Transportation  Security  
+Administration  (TSA) checkpoint  and the Norton  Sound Seafood House.  </p>
+<p>If  you lost  an  item  in  an  ANC terminal, parking garage  or  shuttle bus,  please  visit our office  or  
+call  (907) 266-2623  for assistance. Please  leave a message outside of  normal  business  hours,  and 
+we will return  your  call.</p>
+<p>Hours of  operation are 8 a.m.  – 12  p.m.  Monday  – Friday  (Closed weekends  and holidays)
+Lost  and Found items are kept  for 60-90 days  before  being disposed  
+For items left  on  an  aircraft please contact the airline directly  as  we  do not  handle  these items.  
+Please  be  prepared  to  provide your  name, address,  phone number, email address and a detailed
+description of  the lost  item.</p>
+
+      </div>
+      <div class="right_half">
+      <h3>Military  Lounge:</h3>
+<p>The  Armed Services  YMCA  (ASYMCA)  provides  a lounge  for military  personnel,  located on  the in  
+the South Terminal  lower level behind  the escalators.</p>
+<h3>Parking:</h3>
+<p>Long  and Short Term  Parking lots are  handled through Republic  Parking System.
+The airport operates  a Park, Ride  and Fly Lot,  which is  located off International Airport Road, on  
+Aviation  Avenue. </p>  
+<p>There is  also  a cell  phone lot located approximately 5 minutes from  the passenger pick-up curb.
+Click here  for more  information on  parking at  the airport.
+Cash, credit  cards and checks  are accepted  for payment for parking fees.   Click here  to  see 
+current parking fees.
+(907) 677-1074  </p>
+<p><span>Lost  Parking Ticket</span>Driver  must  show  ID, proof of  registration  and proof of  insurance in  order to  depart  the parking 
+lot without a parking ticket.   Lost  ticket  fee is  handled by  Republic  Parking System.</p>
+
+<p><span>E-Cigarettes:</span> E-cigarettes and vaping pens are only allowed in carry-on bags. They’re prohibited in checked bags due to their lithium battery’s risk of catching fire.</p>
+
+<h3>Postal  Services:</h3>
+<p>There  is  not a post  office  inside  the terminals at  the airport. There  are drop  boxes for mail  that  
+already has postage:<br/>  
+South Terminal  in  front of  the Alaska  Airlines  check-in  area  <br/>
+North Terminal  just  inside  the North entry doors<br/>
+Stamps  can be purchased  at:<br/>
+Alaska  Luggage and Seafood Shipping<br/>
+South Terminal, Level 2,  across  from  TSA check-in. <br/>
+To  send  packages/mail:  <br/>
+Alaska  Luggage and Seafood Shipping<br/>
+South Terminal, Level 2,  across  from  TSA check-in<br/>
+(907) 644-8256  </p>
+
+<h3>Pets:</h3>
+<p>There are pet relief  areas at  both  terminals.    Directional signs are found by  the baggage claim 
+areas at  both  terminals.    Animals are to  be  kept  in  their kennels or  on  a leash when  on  airport 
+property.<br/>
+Passengers  flying  with  pets  must  check with  their airline to  receive instructions  regarding kennel  
+size, health  certificates, etc. Information  about the movement  of  animals into  and out of  Alaska  
+is  available on  the state's veterinarian  page. <br/>
+The following companies offer shipping  of  animals unaccompanied by  their owner:<br/>
+<div class="left_half"><p>Alaska  Airlines  Cargo<br/>
+1(800)  252-7522</p></div>
+<div class="right_half"><p>Delta Air Lines Cargo <br/>
+1(800)  352-2746<br/>
+United  Airlines   <br/> 
+1(800)  575-3335</p></div>
+
+
+</p>
+
+<h3>Porters:</h3>
+<p>Curbside  assistance  by  porters is  available and can be  pre-requested through the airlines.</p>
+<h3>Seafood Shipping:</h3>
+<p>There are two companies that  handle  Baggage and Freezer Storage in  the South Terminal: </p>
+<p><span>Huntleigh USA</span><br/>
+Level 1,  next  to  Bag Claim No. 4.  <br/>
+Passengers  must  present an  airline ticket  or  boarding  pass  in  order to  use this  service <br/>
+(907) 248-0373<br/>
+<span>Alaska  Luggage & Seafood Shipping  Services</span><br/>
+Level 2,  across  from  TSA check-in. <br/>
+Passengers  must  present an  airline ticket  or  boarding  pass  in  order to  use this  service.<br/>
+(907) 644-8256</p>
+
+
+<h3>Security  Screening:</h3>
+<p>The Transportation  Security  Administration  (TSA) is  responsible for passenger and luggage 
+screening at  the airport.</p>
+      </div>
+
+    </div>
+
+
+
+
+  <footer>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+          <li data-target="#myCarousel" data-slide-to="3"></li>
+          <li data-target="#myCarousel" data-slide-to="4"></li>
+        <li data-target="#myCarousel" data-slide-to="5"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+
+          <div class="item active">
+            <img class="fixed-height" src="../../images/slider/1.png" width="460" height="345">
+            <div class="carousel-caption">
+              <h3></h3>
+              <p></p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img class="fixed-height" src="../../images/slider/2.jpg" width="460" height="345">
+            <div class="carousel-caption">
+              <h3></h3>
+              <p></p>
+            </div>
+          </div>
+          <div class="item">
+            <img class="fixed-height" src="../../images/slider/6.jpg" width="460" height="345">
+            <div class="carousel-caption">
+              <h3></h3>
+              <p></p>
+            </div>
+          </div>
+
+
+
+          <div class="item">
+            <img class="fixed-height" src="../../images/slider/3.jpg" width="460" height="345">
+            <div class="carousel-caption">
+              <h3></h3>
+              <p></p>
+            </div>
+          </div>
+
+          
+          <div class="item">
+            <img class="fixed-height" src="../../images/slider/4.jpg" width="460" height="345">
+            <div class="carousel-caption">
+              <h3></h3>
+              <p></p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img class="fixed-height" src="../../images/slider/5.jpg" width="460" height="345">
+            <div class="carousel-caption">
+              <h3></h3>
+              <p></p>
+            </div>
+          </div>
+           
+
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+    </div>
+  </footer>
+</body>
+</html>
